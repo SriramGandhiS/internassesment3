@@ -1,62 +1,74 @@
 "use client";
 
-/* Tailored Course Segmentation - matching reference site with 4 image cards */
+import Image from "next/image";
 
-const segments = [
-  { 
-    title: "Program Specific", 
-    items: "Certificate, Executive, Post Graduate Certificate",
-    gradient: "from-blue-600 to-blue-800"
+const categories = [
+  {
+    title: "Program Specific",
+    desc: "Certificate, Executive, Degree programs tailored for growth.",
+    img: "/assets/seg-1.png",
+    color: "from-blue-600 to-blue-400"
   },
-  { 
-    title: "Industry Specific", 
-    items: "IT, Healthcare, Retail, Finance, Education, Manufacturing",
-    gradient: "from-indigo-600 to-indigo-900"
+  {
+    title: "Industry Specific",
+    desc: "Domain-focused training for Healthcare, Finance, and Tech.",
+    img: "/assets/seg-2.png",
+    color: "from-indigo-600 to-indigo-400"
   },
-  { 
-    title: "Topic Specific", 
-    items: "Machine Learning, Design, Analytics, Cybersecurity, Cloud",
-    gradient: "from-sky-600 to-sky-800"
+  {
+    title: "Topic Specific",
+    desc: "Master specific skills like AI, ML, Design, and Leadership.",
+    img: "/assets/seg-3.png",
+    color: "from-blue-700 to-indigo-500"
   },
-  { 
-    title: "Level Specific", 
-    items: "Senior Leadership, Mid Career Professionals, Freshers",
-    gradient: "from-violet-600 to-violet-900"
-  },
+  {
+    title: "Level Specific",
+    desc: "Training solutions for Entry, Mid, and Senior Leadership.",
+    img: "/assets/seg-4.png",
+    color: "from-indigo-700 to-blue-500"
+  }
 ];
 
 export default function CourseSegmentation() {
   return (
-    <section id="courses" className="py-20 bg-[#F8FAFC]">
-      <div className="max-w-[1200px] mx-auto px-6 text-center">
-        <h2 className="text-[32px] lg:text-[40px] font-extrabold text-[#1E293B] mb-2">
-          Tailored <span className="text-[#1A73E8]">Course Segmentation</span>
-        </h2>
-        <p className="text-[15px] text-[#475569] mb-14">
-          Explore <span className="text-[#1A73E8]">Custom-fit Courses</span> Designed to Address Every Professional Focus
-        </p>
+    <section id="courses" className="py-24 bg-[#F8FAFC]">
+      <div className="container-custom">
+        <div className="text-center mb-16">
+          <h2 className="text-[36px] lg:text-[48px] font-black text-[#1E293B] mb-4">
+            Tailored <span className="text-[#1A73E8]">Course Segmentation</span>
+          </h2>
+          <p className="text-[18px] text-[#64748B] max-w-[700px] mx-auto">
+            Precisely categorized learning paths designed to meet every enterprise need.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1100px] mx-auto">
-          {segments.map((seg, i) => (
-            <div key={i} className="group cursor-pointer">
-              {/* Image placeholder with gradient */}
-              <div className={`h-[200px] rounded-2xl bg-gradient-to-br ${seg.gradient} mb-4 overflow-hidden relative`}>
-                {/* Abstract pattern overlay */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute top-4 left-4 w-20 h-20 border border-white/30 rounded-lg rotate-12" />
-                  <div className="absolute bottom-6 right-6 w-16 h-16 border border-white/20 rounded-full" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-white/10 rounded-xl rotate-45" />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" className="opacity-60">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                    <line x1="8" y1="21" x2="16" y2="21"/>
-                    <line x1="12" y1="17" x2="12" y2="21"/>
-                  </svg>
-                </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {categories.map((cat, i) => (
+            <div 
+              key={i} 
+              className="group relative h-[380px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+            >
+              {/* Background Image */}
+              <Image 
+                src={cat.img} 
+                alt={cat.title}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              
+              {/* Overlay Gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-t ${cat.color} opacity-80 group-hover:opacity-90 transition-opacity duration-500`} />
+              
+              {/* Content */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
+                <h3 className="text-[24px] font-bold mb-3 leading-tight">{cat.title}</h3>
+                <p className="text-[14px] text-white/90 leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                  {cat.desc}
+                </p>
+                
+                {/* Visual Accent */}
+                <div className="w-12 h-1 bg-white/50 mt-4 rounded-full" />
               </div>
-              <h4 className="text-[16px] font-bold text-[#1A73E8] mb-1">{seg.title}</h4>
-              <p className="text-[13px] text-[#64748B] leading-relaxed">{seg.items}</p>
             </div>
           ))}
         </div>
