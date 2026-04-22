@@ -3,7 +3,7 @@
 A high-fidelity partial clone of the [Accredian Enterprise](https://enterprise.accredian.com/) website, built as part of the Full Stack Developer Intern assignment.
 
 ## 🚀 Live Demo
-**Deployed Link:** [https://accredian-enterprise-clone.vercel.app/](https://accredian-enterprise-clone.vercel.app/) *(Placeholder)*
+**Deployed Link:** [https://accredian-enterprise-clone-omega.vercel.app/](https://accredian-enterprise-clone-omega.vercel.app/)
 
 ## 🛠️ Tech Stack
 - **Framework:** Next.js 15 (App Router)
