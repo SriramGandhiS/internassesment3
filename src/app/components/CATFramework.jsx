@@ -1,6 +1,6 @@
 "use client";
 
-import { Lightbulb, Settings2, Wrench } from "lucide-react";
+import { FileText, Layout, Settings } from "lucide-react";
 
 export default function CATFramework() {
   return (
@@ -15,26 +15,43 @@ export default function CATFramework() {
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto py-10 px-4">
-          {/* Continuous Smooth S-Curve Path */}
+        <div className="relative max-w-6xl mx-auto py-10 px-4">
+          {/* Continuous Complex Wave Path */}
           <div className="absolute top-1/2 left-0 w-full h-[320px] -translate-y-1/2 pointer-events-none hidden md:block">
             <svg width="100%" height="100%" viewBox="0 0 1000 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              {/* Node 1 Path */}
               <path 
-                d="M166,40 
-                   A80,80 0 1,0 166,200
-                   C250,200 416,40 500,40
-                   A80,80 0 1,1 500,200
-                   C584,200 750,40 833,40
-                   A80,80 0 1,0 833,200" 
-                stroke="#1A73E8" 
-                strokeWidth="4" 
-                strokeLinecap="round" 
-                fill="none"
+                d="M210,50 A90,90 0 1,0 210,210" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
               />
+              <path 
+                d="M210,210 C250,210 300,50 500,50" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
+              />
+              
+              {/* Node 2 Path */}
+              <path 
+                d="M544,50 A90,90 0 1,0 544,210" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
+              />
+              <path 
+                d="M544,210 C584,210 634,50 833,50" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
+              />
+
+              {/* Node 3 Path */}
+              <path 
+                d="M877,50 A90,90 0 1,0 877,210" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
+              />
+
               {/* Terminal Dots */}
-              <circle cx="166" cy="40" r="6" fill="#1A73E8" />
-              <circle cx="500" cy="40" r="6" fill="#1A73E8" />
-              <circle cx="833" cy="40" r="6" fill="#1A73E8" />
+              <circle cx="210" cy="50" r="8" fill="#1A73E8" />
+              <circle cx="544" cy="50" r="8" fill="#1A73E8" />
+              <circle cx="877" cy="50" r="8" fill="#1A73E8" />
+              <circle cx="344" cy="180" r="8" fill="#1A73E8" />
+              <circle cx="677" cy="180" r="8" fill="#1A73E8" />
+              <circle cx="1000" cy="180" r="8" fill="#1A73E8" />
             </svg>
           </div>
 
@@ -42,16 +59,14 @@ export default function CATFramework() {
             
             {/* Concept */}
             <div className="flex flex-col items-center flex-1">
-              <div className="w-40 h-40 rounded-full flex flex-col items-center justify-center bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] z-20 relative">
-                {/* Border matching SVG */}
-                <div className="absolute inset-0 rounded-full border border-gray-100 -z-10"></div>
+              <div className="w-48 h-48 rounded-full flex flex-col items-center justify-center bg-white shadow-xl z-20 relative">
                 <div className="text-[#1A73E8] mb-2">
-                  <Lightbulb size={44} strokeWidth={1.5} />
+                  <FileText size={64} strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="mt-12 text-center max-w-[200px]">
-                <h4 className="text-[22px] font-bold text-[#1E293B] mb-2">Concept</h4>
-                <p className="text-[14px] text-[#64748B] leading-relaxed">
+              <div className="mt-12 text-center max-w-[220px]">
+                <h4 className="text-[24px] font-extrabold text-[#1E293B] mb-3">Concept</h4>
+                <p className="text-[15px] text-[#475569] leading-relaxed font-medium">
                   Foundational knowledge for deep subject understanding.
                 </p>
               </div>
@@ -59,15 +74,14 @@ export default function CATFramework() {
 
             {/* Application */}
             <div className="flex flex-col items-center flex-1">
-              <div className="w-40 h-40 rounded-full flex flex-col items-center justify-center bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] z-20 relative">
-                <div className="absolute inset-0 rounded-full border border-gray-100 -z-10"></div>
+              <div className="w-48 h-48 rounded-full flex flex-col items-center justify-center bg-white shadow-xl z-20 relative">
                 <div className="text-[#1A73E8] mb-2">
-                  <Settings2 size={44} strokeWidth={1.5} />
+                  <Layout size={64} strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="mt-12 text-center max-w-[200px]">
-                <h4 className="text-[22px] font-bold text-[#1E293B] mb-2">Application</h4>
-                <p className="text-[14px] text-[#64748B] leading-relaxed">
+              <div className="mt-12 text-center max-w-[220px]">
+                <h4 className="text-[24px] font-extrabold text-[#1E293B] mb-3">Application</h4>
+                <p className="text-[15px] text-[#475569] leading-relaxed font-medium">
                   Practical implementation through real-world scenarios.
                 </p>
               </div>
@@ -75,15 +89,14 @@ export default function CATFramework() {
 
             {/* Tools */}
             <div className="flex flex-col items-center flex-1">
-              <div className="w-40 h-40 rounded-full flex flex-col items-center justify-center bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] z-20 relative">
-                <div className="absolute inset-0 rounded-full border border-gray-100 -z-10"></div>
+              <div className="w-48 h-48 rounded-full flex flex-col items-center justify-center bg-white shadow-xl z-20 relative">
                 <div className="text-[#1A73E8] mb-2">
-                  <Wrench size={44} strokeWidth={1.5} />
+                  <Settings size={64} strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="mt-12 text-center max-w-[200px]">
-                <h4 className="text-[22px] font-bold text-[#1E293B] mb-2">Tools</h4>
-                <p className="text-[14px] text-[#64748B] leading-relaxed">
+              <div className="mt-12 text-center max-w-[220px]">
+                <h4 className="text-[24px] font-extrabold text-[#1E293B] mb-3">Tools</h4>
+                <p className="text-[15px] text-[#475569] leading-relaxed font-medium">
                   Resources and techniques for effective skill mastery.
                 </p>
               </div>
