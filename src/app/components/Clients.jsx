@@ -4,34 +4,39 @@ import LogoLoop from './LogoLoop';
 
 const partnerLogos = [
   { 
-    src: "https://upload.wikimedia.org/wikipedia/en/thumb/9/99/Reliance_Industries_Logo.svg/1200px-Reliance_Industries_Logo.svg.png", 
+    src: "https://logo.clearbit.com/reliance.com", 
     alt: "Reliance", 
     title: "Reliance" 
   },
   { 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1000px-IBM_logo.svg.png", 
+    src: "https://logo.clearbit.com/ibm.com", 
     alt: "IBM", 
     title: "IBM" 
   },
   { 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/HCL_Technologies_logo.svg/1200px-HCL_Technologies_logo.svg.png", 
+    src: "https://logo.clearbit.com/hcltech.com", 
     alt: "HCL", 
     title: "HCL" 
   },
   { 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Bayer_logo.svg/1200px-Bayer_logo.svg.png", 
+    src: "https://logo.clearbit.com/bayer.com", 
     alt: "Bayer", 
     title: "Bayer" 
   },
   { 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/ADP_logo.svg/1200px-ADP_logo.svg.png", 
+    src: "https://logo.clearbit.com/adp.com", 
     alt: "ADP", 
     title: "ADP" 
   },
   { 
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/CRIF_Logo.svg/1200px-CRIF_Logo.svg.png", 
+    src: "https://logo.clearbit.com/crif.com", 
     alt: "CRIF", 
     title: "CRIF" 
+  },
+  { 
+    src: "https://logo.clearbit.com/google.com", 
+    alt: "Google", 
+    title: "Google" 
   },
 ];
 
@@ -46,7 +51,7 @@ export default function Clients() {
         <div className="py-4">
           <LogoLoop
             logos={partnerLogos}
-            speed={80}
+            speed={60}
             direction="left"
             logoHeight={48}
             gap={100}

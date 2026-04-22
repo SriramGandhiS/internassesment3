@@ -242,16 +242,11 @@ export const LogoLoop = memo(
         ) : (
           <img
             src={item.src}
-            srcSet={item.srcSet}
-            sizes={item.sizes}
-            width={item.width}
-            height={item.height}
             alt={item.alt ?? ''}
             title={item.title}
             loading="lazy"
-            decoding="async"
             draggable={false}
-            unoptimized={true}
+            style={{ height: 'var(--logoloop-logoHeight)', width: 'auto', objectFit: 'contain' }}
           />
         );
         const itemAriaLabel = isNodeItem ? (item.ariaLabel ?? item.title) : (item.alt ?? item.title);

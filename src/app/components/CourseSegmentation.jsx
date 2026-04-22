@@ -45,12 +45,12 @@ export default function CourseSegmentation() {
               className="bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgb(0,0,0,0.05)] border border-gray-100 flex flex-col hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               {/* Image Top Half */}
-              <div className="h-[200px] relative w-full">
-                <Image 
+              <div className="h-[200px] relative w-full overflow-hidden">
+                <img 
                   src={cat.img} 
                   alt={cat.title}
-                  fill
-                  className="object-cover"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               
