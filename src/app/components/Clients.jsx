@@ -29,7 +29,7 @@ const partnerLogos = [
     title: "ADP" 
   },
   { 
-    src: "https://www.crif.com/media/1012/crif_logo.png", 
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/CRIF_Logo.svg/1200px-CRIF_Logo.svg.png", 
     alt: "CRIF", 
     title: "CRIF" 
   },
