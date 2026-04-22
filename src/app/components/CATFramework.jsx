@@ -15,56 +15,59 @@ export default function CATFramework() {
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto py-10 px-4">
-          {/* Continuous Complex Wave Path */}
-          <div className="absolute top-1/2 left-0 w-full h-[320px] -translate-y-1/2 pointer-events-none hidden md:block">
-            <svg width="100%" height="100%" viewBox="0 0 1000 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-              {/* Node 1 Path */}
+        {/* Fixed width container to ensure SVG alignment */}
+        <div className="relative w-full max-w-[1000px] mx-auto py-10">
+          
+          {/* SVG Path Layer */}
+          <div className="absolute inset-0 pointer-events-none hidden md:block">
+            <svg width="100%" height="100%" viewBox="0 0 1000 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Node 1 Path (Circle around 166,100) */}
               <path 
-                d="M210,50 A90,90 0 1,0 210,210" 
-                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
+                d="M236,100 A70,70 0 1,0 166,170" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round" fill="none"
               />
+              {/* Connector 1 to 2 */}
               <path 
-                d="M210,210 C250,210 300,50 500,50" 
-                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
+                d="M166,170 C250,170 350,30 500,30" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round" fill="none"
               />
               
-              {/* Node 2 Path */}
+              {/* Node 2 Path (Circle around 500,100) */}
               <path 
-                d="M544,50 A90,90 0 1,0 544,210" 
-                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
+                d="M570,100 A70,70 0 1,0 500,170" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round" fill="none"
               />
+              {/* Connector 2 to 3 */}
               <path 
-                d="M544,210 C584,210 634,50 833,50" 
-                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
+                d="M500,170 C600,170 700,30 834,30" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round" fill="none"
               />
 
-              {/* Node 3 Path */}
+              {/* Node 3 Path (Circle around 834,100) */}
               <path 
-                d="M877,50 A90,90 0 1,0 877,210" 
-                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round"
+                d="M904,100 A70,70 0 1,0 834,170" 
+                stroke="#1A73E8" strokeWidth="6" strokeLinecap="round" fill="none"
               />
 
               {/* Terminal Dots */}
-              <circle cx="210" cy="50" r="8" fill="#1A73E8" />
-              <circle cx="544" cy="50" r="8" fill="#1A73E8" />
-              <circle cx="877" cy="50" r="8" fill="#1A73E8" />
-              <circle cx="344" cy="180" r="8" fill="#1A73E8" />
-              <circle cx="677" cy="180" r="8" fill="#1A73E8" />
-              <circle cx="1000" cy="180" r="8" fill="#1A73E8" />
+              <circle cx="236" cy="100" r="8" fill="#1A73E8" />
+              <circle cx="570" cy="100" r="8" fill="#1A73E8" />
+              <circle cx="904" cy="100" r="8" fill="#1A73E8" />
+              <circle cx="344" cy="160" r="8" fill="#1A73E8" />
+              <circle cx="677" cy="160" r="8" fill="#1A73E8" />
             </svg>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center relative gap-24 md:gap-0">
+          <div className="flex flex-col md:flex-row justify-between items-start relative gap-24 md:gap-0">
             
             {/* Concept */}
-            <div className="flex flex-col items-center flex-1">
-              <div className="w-48 h-48 rounded-full flex flex-col items-center justify-center bg-white shadow-xl z-20 relative">
-                <div className="text-[#1A73E8] mb-2">
+            <div className="flex flex-col items-center w-full md:w-[33.33%]">
+              <div className="w-40 h-40 rounded-full flex flex-col items-center justify-center bg-white shadow-xl z-20 relative">
+                <div className="text-[#1A73E8]">
                   <FileText size={64} strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="mt-12 text-center max-w-[220px]">
+              <div className="mt-12 text-center px-4">
                 <h4 className="text-[24px] font-extrabold text-[#1E293B] mb-3">Concept</h4>
                 <p className="text-[15px] text-[#475569] leading-relaxed font-medium">
                   Foundational knowledge for deep subject understanding.
@@ -73,13 +76,13 @@ export default function CATFramework() {
             </div>
 
             {/* Application */}
-            <div className="flex flex-col items-center flex-1">
-              <div className="w-48 h-48 rounded-full flex flex-col items-center justify-center bg-white shadow-xl z-20 relative">
-                <div className="text-[#1A73E8] mb-2">
+            <div className="flex flex-col items-center w-full md:w-[33.33%]">
+              <div className="w-40 h-40 rounded-full flex flex-col items-center justify-center bg-white shadow-xl z-20 relative">
+                <div className="text-[#1A73E8]">
                   <Layout size={64} strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="mt-12 text-center max-w-[220px]">
+              <div className="mt-12 text-center px-4">
                 <h4 className="text-[24px] font-extrabold text-[#1E293B] mb-3">Application</h4>
                 <p className="text-[15px] text-[#475569] leading-relaxed font-medium">
                   Practical implementation through real-world scenarios.
@@ -88,13 +91,13 @@ export default function CATFramework() {
             </div>
 
             {/* Tools */}
-            <div className="flex flex-col items-center flex-1">
-              <div className="w-48 h-48 rounded-full flex flex-col items-center justify-center bg-white shadow-xl z-20 relative">
-                <div className="text-[#1A73E8] mb-2">
+            <div className="flex flex-col items-center w-full md:w-[33.33%]">
+              <div className="w-40 h-40 rounded-full flex flex-col items-center justify-center bg-white shadow-xl z-20 relative">
+                <div className="text-[#1A73E8]">
                   <Settings size={64} strokeWidth={1.5} />
                 </div>
               </div>
-              <div className="mt-12 text-center max-w-[220px]">
+              <div className="mt-12 text-center px-4">
                 <h4 className="text-[24px] font-extrabold text-[#1E293B] mb-3">Tools</h4>
                 <p className="text-[15px] text-[#475569] leading-relaxed font-medium">
                   Resources and techniques for effective skill mastery.
