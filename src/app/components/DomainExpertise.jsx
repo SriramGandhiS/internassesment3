@@ -6,139 +6,89 @@ const domains = [
   {
     tab: "Product & Innovation Hub",
     icon: "🚀",
-    courses: [
-      { title: "Product Management Masterclass", duration: "12 weeks", level: "Advanced" },
-      { title: "Design Thinking Workshop", duration: "8 weeks", level: "Intermediate" },
-      { title: "Innovation Strategy", duration: "6 weeks", level: "Advanced" },
-    ],
+    courses: ["Product Management", "Design Thinking", "Innovation Strategy"],
   },
   {
     tab: "Gen-AI Mastery",
     icon: "🤖",
-    courses: [
-      { title: "Generative AI for Business", duration: "10 weeks", level: "Intermediate" },
-      { title: "LLM Applications & Prompt Engineering", duration: "8 weeks", level: "Advanced" },
-      { title: "AI Strategy for Leaders", duration: "6 weeks", level: "Executive" },
-    ],
+    courses: ["Gen-AI for Business", "LLM & Prompt Engineering", "AI Strategy"],
   },
   {
     tab: "Leadership Elevation",
     icon: "👔",
-    courses: [
-      { title: "Executive Leadership Program", duration: "16 weeks", level: "Executive" },
-      { title: "Strategic Management", duration: "12 weeks", level: "Advanced" },
-      { title: "People Management Excellence", duration: "8 weeks", level: "Intermediate" },
-    ],
+    courses: ["Executive Leadership", "Strategic Management", "People Management"],
   },
   {
     tab: "Tech & Data Insights",
     icon: "📊",
-    courses: [
-      { title: "Data Science & Analytics", duration: "14 weeks", level: "Advanced" },
-      { title: "Machine Learning Engineering", duration: "12 weeks", level: "Advanced" },
-      { title: "Cloud Architecture", duration: "10 weeks", level: "Intermediate" },
-    ],
+    courses: ["Data Science & Analytics", "Machine Learning", "Cloud Architecture"],
   },
   {
     tab: "Operations Excellence",
     icon: "⚙️",
-    courses: [
-      { title: "Six Sigma Black Belt", duration: "12 weeks", level: "Advanced" },
-      { title: "Supply Chain Optimization", duration: "10 weeks", level: "Intermediate" },
-      { title: "Project Management Professional", duration: "8 weeks", level: "Intermediate" },
-    ],
+    courses: ["Six Sigma Black Belt", "Supply Chain", "Project Management"],
   },
   {
     tab: "Digital Enterprise",
     icon: "🌐",
-    courses: [
-      { title: "Digital Transformation Strategy", duration: "10 weeks", level: "Executive" },
-      { title: "Full-Stack Development", duration: "16 weeks", level: "Intermediate" },
-      { title: "Cybersecurity Fundamentals", duration: "8 weeks", level: "Intermediate" },
-    ],
+    courses: ["Digital Transformation", "Full-Stack Development", "Cybersecurity"],
   },
   {
     tab: "Fintech Innovation Lab",
     icon: "💰",
-    courses: [
-      { title: "Fintech Product Development", duration: "12 weeks", level: "Advanced" },
-      { title: "Blockchain & DeFi", duration: "10 weeks", level: "Advanced" },
-      { title: "Risk Analytics", duration: "8 weeks", level: "Intermediate" },
-    ],
+    courses: ["Fintech Products", "Blockchain & DeFi", "Risk Analytics"],
   },
 ];
-
-const levelColors = {
-  Intermediate: "bg-blue-100 text-blue-700",
-  Advanced: "bg-purple-100 text-purple-700",
-  Executive: "bg-amber-100 text-amber-700",
-};
 
 export default function DomainExpertise() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section className="py-20 bg-gray-50/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            Our <span className="gradient-text">Domain Expertise</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-            Explore Custom-fit Courses Designed to Address Every Professional Focus
-          </p>
-        </div>
+    <section className="section-padding bg-[var(--bg-main)]">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <h2 className="text-center text-[32px] lg:text-[38px] font-bold text-[var(--text-dark)] mb-2">
+          Our <span className="blue-text">Domain Expertise</span>
+        </h2>
+        <p className="text-center text-[16px] text-[var(--text-body)] mb-2">
+          Tailored <span className="blue-text font-semibold">Course Segmentation</span>
+        </p>
+        <p className="text-center text-[14px] text-[var(--text-light)] mb-12">
+          Explore <span className="blue-text">Custom-fit Courses</span> Designed to Address Every Professional Focus
+        </p>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {domains.map((domain, i) => (
+        {/* Tab pills */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {domains.map((d, i) => (
             <button
               key={i}
               onClick={() => setActiveTab(i)}
-              className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`flex items-center gap-2 px-5 py-3 rounded-full text-[13px] font-medium border transition-all duration-200 ${
                 activeTab === i
-                  ? "bg-[var(--primary)] text-white shadow-lg shadow-blue-200"
-                  : "bg-white text-gray-600 border border-gray-200 hover:border-blue-300 hover:text-[var(--primary)]"
+                  ? "bg-white border-[var(--primary)] text-[var(--primary)] shadow-sm"
+                  : "bg-white border-gray-200 text-gray-600 hover:border-gray-300"
               }`}
             >
-              <span className="mr-1.5">{domain.icon}</span>
-              {domain.tab}
+              <span>{d.icon}</span>
+              {d.tab}
             </button>
           ))}
         </div>
 
-        {/* Course Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeIn" key={activeTab}>
+        {/* Course list */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" key={activeTab}>
           {domains[activeTab].courses.map((course, i) => (
             <div
               key={i}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-300 group"
-              style={{ animation: `fadeInUp 0.4s ease-out ${i * 100}ms both` }}
+              className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200"
+              style={{ animation: `fadeInUp 0.4s ease-out ${i * 80}ms both` }}
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-2xl">
-                  {domains[activeTab].icon}
-                </div>
-                <span
-                  className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                    levelColors[course.level]
-                  }`}
-                >
-                  {course.level}
-                </span>
+              <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-xl mb-4">
+                {domains[activeTab].icon}
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[var(--primary)] transition-colors">
-                {course.title}
-              </h3>
-              <div className="flex items-center gap-2 text-sm text-gray-500">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                {course.duration}
-              </div>
-              <button className="mt-4 text-sm font-semibold text-[var(--primary)] group-hover:underline">
-                Learn More →
-              </button>
+              <h3 className="text-[16px] font-semibold text-[var(--text-dark)] mb-2">{course}</h3>
+              <p className="text-[13px] text-[var(--text-light)]">
+                Expert-led program designed for professionals.
+              </p>
             </div>
           ))}
         </div>

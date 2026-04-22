@@ -1,66 +1,37 @@
 "use client";
 
 const clients = [
-  { name: "Reliance Industries", abbr: "RIL" },
-  { name: "HCL Technologies", abbr: "HCL" },
-  { name: "IBM", abbr: "IBM" },
-  { name: "CRIF", abbr: "CRIF" },
-  { name: "ADP", abbr: "ADP" },
-  { name: "BAYER", abbr: "BAYER" },
-  { name: "Wipro", abbr: "WIPRO" },
-  { name: "Infosys", abbr: "INFOSYS" },
+  { name: "Reliance Industries Limited", short: "Reliance" },
+  { name: "HCL Technologies", short: "HCL" },
+  { name: "IBM", short: "IBM" },
+  { name: "CRIF", short: "CRIF" },
+  { name: "ADP", short: "ADP" },
+  { name: "BAYER", short: "BAYER" },
 ];
-
-function ClientLogo({ client }) {
-  const colors = {
-    RIL: "from-blue-600 to-blue-800",
-    HCL: "from-blue-500 to-cyan-500",
-    IBM: "from-blue-700 to-blue-900",
-    CRIF: "from-red-500 to-red-700",
-    ADP: "from-red-600 to-red-800",
-    BAYER: "from-green-500 to-teal-600",
-    WIPRO: "from-purple-500 to-purple-700",
-    INFOSYS: "from-blue-500 to-indigo-600",
-  };
-
-  return (
-    <div className="flex-shrink-0 w-44 h-24 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center px-6 group hover:shadow-md hover:border-blue-100 transition-all duration-300 mx-3">
-      <div
-        className={`text-xl font-bold bg-gradient-to-r ${
-          colors[client.abbr] || "from-gray-500 to-gray-700"
-        } bg-clip-text text-transparent group-hover:scale-105 transition-transform`}
-      >
-        {client.abbr}
-      </div>
-    </div>
-  );
-}
 
 export default function Clients() {
   return (
-    <section id="clients" className="py-20 bg-gray-50/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            Our Proven{" "}
-            <span className="gradient-text">Partnerships</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-            Successful Collaborations With the Industry&apos;s Best
-          </p>
-        </div>
+    <section id="clients" className="section-padding bg-[var(--bg-main)]">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+        <h2 className="text-center text-[32px] lg:text-[38px] font-bold text-[var(--text-dark)] mb-2">
+          Our Proven <span className="blue-text">Partnerships</span>
+        </h2>
+        <p className="text-center text-[16px] text-[var(--text-body)] mb-14">
+          Successful Collaborations With the <span className="font-semibold blue-text">Industry&apos;s Best</span>
+        </p>
 
-        {/* Scrolling Logo Carousel */}
-        <div className="relative overflow-hidden">
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50/50 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50/50 to-transparent z-10" />
-
-          <div className="flex animate-marquee">
-            {[...clients, ...clients].map((client, i) => (
-              <ClientLogo key={`${client.abbr}-${i}`} client={client} />
-            ))}
-          </div>
+        {/* Logos row */}
+        <div className="flex justify-center items-center flex-wrap gap-10 lg:gap-16">
+          {clients.map((c) => (
+            <div
+              key={c.short}
+              className="group transition-all duration-300 opacity-60 hover:opacity-100 cursor-pointer"
+            >
+              <span className="text-[20px] lg:text-[24px] font-bold text-gray-500 group-hover:text-[var(--primary)] transition-colors tracking-wide">
+                {c.short}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,22 +1,18 @@
 @import "tailwindcss";
 
-/* ===== Custom Design Tokens ===== */
 :root {
   --primary: #1a73e8;
   --primary-dark: #1557b0;
   --primary-light: #e8f0fe;
-  --accent-green: #28a745;
-  --dark-bg: #111827;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --text-light: #9ca3af;
-  --card-border: #e5e7eb;
-  --card-bg: #f9fafb;
-  --hero-bg: #f3f6fc;
+  --bg-main: #f0f4f8;
+  --bg-section: #f5f7fa;
+  --text-dark: #1a1a2e;
+  --text-body: #4a4a68;
+  --text-light: #7a7a8e;
+  --green-check: #34a853;
   --font-inter: "Inter", sans-serif;
 }
 
-/* ===== Base Styles ===== */
 * {
   margin: 0;
   padding: 0;
@@ -25,234 +21,109 @@
 
 body {
   font-family: var(--font-inter);
+  background: var(--bg-main);
+  color: var(--text-dark);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* ===== Smooth Section Scrolling Offset ===== */
 section[id] {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 72px;
 }
 
-/* ===== Custom Animations ===== */
+/* Animations */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 0 12px rgba(26, 115, 232, 0);
-  }
-}
-
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.6s ease-out forwards;
+.animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
+.animate-slideInLeft { animation: slideInLeft 0.7s ease-out forwards; }
+.animate-slideInRight { animation: slideInRight 0.7s ease-out forwards; }
+.animate-marquee { animation: marquee 25s linear infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #e8ecf1; }
+::-webkit-scrollbar-thumb { background: #b0b8c4; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #8a94a2; }
+
+/* Blue gradient text */
+.blue-text {
+  color: var(--primary);
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-.animate-slideInLeft {
-  animation: slideInLeft 0.7s ease-out forwards;
-}
-
-.animate-slideInRight {
-  animation: slideInRight 0.7s ease-out forwards;
-}
-
-.animate-countUp {
-  animation: countUp 0.5s ease-out forwards;
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s infinite;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* ===== Stagger Delays ===== */
-.delay-100 {
-  animation-delay: 100ms;
-}
-.delay-200 {
-  animation-delay: 200ms;
-}
-.delay-300 {
-  animation-delay: 300ms;
-}
-.delay-400 {
-  animation-delay: 400ms;
-}
-.delay-500 {
-  animation-delay: 500ms;
-}
-.delay-600 {
-  animation-delay: 600ms;
-}
-.delay-700 {
-  animation-delay: 700ms;
-}
-
-/* ===== Custom Scrollbar ===== */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-::-webkit-scrollbar-thumb {
-  background: #c4c4c4;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #a0a0a0;
-}
-
-/* ===== Dashed Process Line ===== */
-.process-line {
-  border-top: 2px dashed var(--primary);
-}
-
-/* ===== Accordion Animation ===== */
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-}
-.accordion-content.open {
-  max-height: 500px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-
-/* ===== Glass Card ===== */
-.glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* ===== Gradient Text ===== */
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary), #4f9cf7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ===== Custom Button Hover ===== */
-.btn-primary {
+/* CTA Buttons matching the site */
+.btn-enquire {
   background: var(--primary);
   color: white;
   padding: 12px 32px;
   border-radius: 8px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  transition: all 0.2s ease;
 }
-.btn-primary:hover {
+.btn-enquire:hover {
   background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(26, 115, 232, 0.3);
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
 }
 
-.btn-secondary {
+.btn-contact {
   background: white;
   color: var(--primary);
-  padding: 12px 32px;
+  padding: 14px 36px;
   border-radius: 8px;
   font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid var(--primary);
-  cursor: pointer;
   font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
-.btn-secondary:hover {
-  background: var(--primary-light);
-  transform: translateY(-2px);
+.btn-contact:hover {
+  background: #f0f4ff;
+}
+
+/* Section spacing */
+.section-padding {
+  padding: 80px 0;
+}
+
+/* Accordion */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.faq-answer.open {
+  max-height: 300px;
 }
