@@ -70,6 +70,12 @@
 .logoloop__node {
   display: inline-flex;
   align-items: center;
+  height: var(--logoloop-logoHeight);
+}
+
+.logoloop__node svg {
+  height: 100%;
+  width: auto;
 }
 
 .logoloop__item img {
