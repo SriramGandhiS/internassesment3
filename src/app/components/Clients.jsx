@@ -1,32 +1,32 @@
 "use client";
 
 import LogoLoop from './LogoLoop';
+import { RelianceLogo, IBMLogo, HCLLogo, BayerLogo } from './LogoSvgs';
 
 const partnerLogos = [
   { 
-    src: "/assets/logos/reliance.png", 
-    alt: "Reliance", 
+    node: <RelianceLogo />, 
     title: "Reliance" 
   },
   { 
-    src: "/assets/logos/ibm.png", 
-    alt: "IBM", 
+    node: <IBMLogo />, 
     title: "IBM" 
   },
   { 
-    src: "/assets/logos/hcl.png", 
-    alt: "HCL", 
+    node: <HCLLogo />, 
     title: "HCL" 
   },
   { 
-    src: "/assets/logos/bayer.png", 
-    alt: "Bayer", 
+    node: <BayerLogo />, 
     title: "Bayer" 
   },
   { 
-    src: "https://logo.clearbit.com/adp.com", 
-    alt: "ADP", 
+    node: <div className="text-4xl font-black text-red-600">ADP</div>, 
     title: "ADP" 
+  },
+  { 
+    node: <div className="text-4xl font-black text-blue-900">CRIF</div>, 
+    title: "CRIF" 
   }
 ];
 
@@ -43,7 +43,7 @@ export default function Clients() {
             logos={partnerLogos}
             speed={60}
             direction="left"
-            logoHeight={64}
+            logoHeight={48}
             gap={100}
             pauseOnHover={true}
             scaleOnHover={true}
