@@ -1,92 +1,77 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+
+/* Testimonials - 2 cards side by side with company logos + quotes, properly spaced */
 
 const testimonials = [
-  {
-    name: "Rajesh Kumar",
-    role: "VP of Engineering",
-    company: "Reliance Jio",
-    text: "Accredian's corporate training transformed our team's data capabilities. The CAT framework ensured practical application from day one. We saw a 40% improvement in project delivery.",
-    initials: "RK",
-  },
-  {
-    name: "Priya Sharma",
-    role: "Head of L&D",
-    company: "HCL Technologies",
-    text: "The customized Gen-AI programs were exactly what we needed. The flexibility and quality of instructors exceeded our expectations. Highly recommended for any enterprise.",
-    initials: "PS",
-  },
-  {
-    name: "Amit Patel",
-    role: "CTO",
-    company: "IBM India",
-    text: "We've partnered with Accredian for three years. Their skill gap analysis and tailored roadmaps have been instrumental in our digital transformation journey.",
-    initials: "AP",
-  },
+  [
+    {
+      logo: "ADP",
+      logoColor: "#D0271D",
+      text: "We would like to thank Accredian for the wonderful support and the beautiful journey. The team turned our vision into reality with unparalleled dedication, service, and expertise throughout the entire process.",
+    },
+    {
+      logo: "BAYER",
+      logoColor: "#10857F",
+      text: "Accredian's commitment to excellence is unmatched. They consistently go the extra mile to ensure our needs are met and exceeded, providing reliable support and high-quality service every step of the way.",
+    },
+  ],
+  [
+    {
+      logo: "HCL",
+      logoColor: "#0066B3",
+      text: "The customized Gen-AI programs were exactly what we needed. The flexibility and quality of instructors exceeded our expectations. Highly recommended for any enterprise.",
+    },
+    {
+      logo: "IBM",
+      logoColor: "#054ADA",
+      text: "We've partnered with Accredian for three years. Their skill gap analysis and tailored roadmaps have been instrumental in our digital transformation journey.",
+    },
+  ],
 ];
 
 export default function Testimonials() {
-  const [active, setActive] = useState(0);
-  const intervalRef = useRef(null);
-
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setActive((p) => (p + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(intervalRef.current);
-  }, []);
-
-  const goTo = (i) => {
-    setActive(i);
-    clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setActive((p) => (p + 1) % testimonials.length);
-    }, 5000);
-  };
+  const [page, setPage] = useState(0);
 
   return (
-    <section id="testimonials" className="section-padding bg-[var(--bg-main)]">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-        <h2 className="text-center text-[32px] lg:text-[38px] font-bold text-[var(--text-dark)] mb-2">
-          Testimonials from Our <span className="blue-text">Partners</span>
+    <section id="testimonials" className="py-20 bg-white">
+      <div className="max-w-[1200px] mx-auto px-6 text-center">
+        <h2 className="text-[32px] lg:text-[40px] font-extrabold text-[#1E293B] mb-2">
+          Testimonials from <span className="text-[#1A73E8]">Our Partners</span>
         </h2>
-        <p className="text-center text-[16px] text-[var(--text-body)] mb-14">
-          Hear what our partners say about working with Accredian
+        <p className="text-[15px] text-[#475569] mb-14">
+          What <span className="text-[#1A73E8]">Our Clients</span> Are Saying
         </p>
 
-        <div className="max-w-[700px] mx-auto">
-          {/* Card */}
-          <div className="bg-white rounded-xl p-8 lg:p-10 border border-gray-100 shadow-sm text-center" key={active}>
-            <div className="animate-fadeIn">
-              {/* Avatar */}
-              <div className="w-16 h-16 rounded-full bg-[var(--primary)] flex items-center justify-center text-white text-xl font-bold mx-auto mb-5">
-                {testimonials[active].initials}
+        {/* Cards Grid - 2 side by side */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
+          {testimonials[page].map((t, i) => (
+            <div key={i} className="bg-white border border-[#E2E8F0] rounded-2xl p-8 lg:p-10 text-left shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-shadow">
+              {/* Company Logo */}
+              <div className="mb-6">
+                <span className="text-[28px] font-black tracking-tight" style={{ color: t.logoColor }}>{t.logo}</span>
               </div>
               {/* Quote */}
-              <p className="text-[15px] text-[var(--text-body)] leading-relaxed italic mb-6">
-                &ldquo;{testimonials[active].text}&rdquo;
-              </p>
-              {/* Name */}
-              <p className="font-bold text-[var(--text-dark)]">{testimonials[active].name}</p>
-              <p className="text-[13px] text-[var(--text-light)]">
-                {testimonials[active].role}, {testimonials[active].company}
+              <p className="text-[15px] text-[#475569] leading-relaxed font-medium">
+                &ldquo;{t.text}&rdquo;
               </p>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Dots */}
-          <div className="flex justify-center gap-2.5 mt-8">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  active === i ? "bg-[var(--primary)] w-6" : "bg-gray-300"
-                }`}
-              />
-            ))}
-          </div>
+        {/* Pagination Dots */}
+        <div className="flex justify-center gap-3 mt-12">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setPage(i)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                page === i ? "bg-[#1A73E8] w-8" : "bg-[#CBD5E1]"
+              }`}
+              aria-label={`Go to testimonial page ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
