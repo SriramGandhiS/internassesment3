@@ -6,22 +6,22 @@ const categories = [
   {
     title: "Program Specific",
     desc: "Certificate, Executive, Post Graduate Certificate",
-    img: "/assets/seg-1.png",
+    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "Industry Specific",
     desc: "IT, Healthcare, Retail, Finance, Education, Manufacturing",
-    img: "/assets/seg-2.png",
+    img: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "Topic Specific",
     desc: "Machine Learning, Design, Analytics, Cybersecurity, Cloud",
-    img: "/assets/seg-3.png",
+    img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "Level Specific",
     desc: "Senior Leadership, Mid-Career Professionals, Freshers",
-    img: "/assets/seg-4.png",
+    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
   }
 ];
 
